@@ -39,11 +39,12 @@ if (form && success) {
     submitBtn.disabled = true;
 
     // TODO: Replace this URL with your Google Apps Script Web App URL
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzc-J_JrFIJyAfpAAZyvLtDdGfPEteo4R-H-w6ripDQrn_vs6on4xxErdaH6z-KsMd-/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyCrGkjllav_EyV2tLDujo2dDa8CaWfHUqGmipfvi8fqyZEsmaaQrhLsmhGBp1nfgXA/exec';
 
     const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
 
-    fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' })
+    fetch(scriptURL, { method: 'POST', body: data, mode: 'no-cors' })
       .then(response => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
